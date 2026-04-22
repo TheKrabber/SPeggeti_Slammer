@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SPegetti Slammer</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://unpkg.com/three@0.161.0/build/three.module.js",
+        "three/addons/": "https://unpkg.com/three@0.161.0/examples/jsm/"
+      }
+    }
+  </script>
+</head>
+<body>
+  <canvas id="game"></canvas>
+
+  <div id="hud" class="hidden">
+    <div id="crosshair"></div>
+    <div id="top-left">
+      <div class="line"><span class="label">Spaghettified:</span> <span id="kill-count">0</span></div>
+      <div class="line"><span class="label">Bumped:</span> <span id="bump-count">0</span></div>
+    </div>
+    <div id="bottom-center">
+      <div id="cooldown-wrap"><div id="cooldown-bar"></div></div>
+      <div id="cooldown-label">Hammer Ready</div>
+    </div>
+  </div>
+
+  <div id="menu">
+    <h1>SPegetti Slammer</h1>
+    <p class="tag">A 10&nbsp;lb sledgehammer. A city. Chaos.</p>
+    <div class="panel">
+      <h2>Controls</h2>
+      <ul>
+        <li><b>W A S D</b> — Move (opposite keys cancel)</li>
+        <li><b>Left Shift (hold)</b> — Run</li>
+        <li><b>Mouse</b> — Look around (first person)</li>
+        <li><b>Left Click</b> — Swing sledgehammer (3.5s cooldown)</li>
+        <li><b>Esc</b> — Release mouse</li>
+      </ul>
+      <h2>How It Works</h2>
+      <ul>
+        <li>Hit a victim with the <b>hammer head</b> — they become strands of spaghetti.</li>
+        <li>Hit them with the <b>handle</b> — they just get bumped.</li>
+        <li>Swings alternate: first swing right, next swing left, repeat.</li>
+        <li>Watch out for the cars — they don't stop.</li>
+      </ul>
+    </div>
+    <button id="play-btn">Click to Play</button>
+    <p class="footnote">Loading the city...</p>
+  </div>
+
+  <div id="death-overlay" class="hidden">
+    <h2>You got hit by a car.</h2>
+    <p>Respawning in <span id="respawn-countdown">5</span>...</p>
+  </div>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
